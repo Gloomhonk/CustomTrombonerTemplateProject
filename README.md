@@ -29,7 +29,7 @@ You'll need the following:
 - In Unity, navigate to Scenes and open `HumanoidExampleScene`. This scene contains the game-accurate lighting and camera setup, plus an example character prefab. 
 - If you press Play, you should see the example character animate. Clicking the play area should also trigger the toot animations and effects.
 
-![HumanoidPlayMode](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/6d5f718f-b8d0-4358-a80b-4bffee22bb7d)
+![HumanoidPlayMode](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/6d5f718f-b8d0-4358-a80b-4bffee22bb7d | width=640)
 
 
 <a id="first-character"></a>
