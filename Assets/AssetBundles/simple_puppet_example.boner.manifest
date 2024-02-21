@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 3020828415
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1e47270f233722cb253665f69ea6bdde
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ce2990554d8fefba8eeeb5268dad7fb3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/SimplePuppetExample/Puppet.prefab
+Dependencies: []

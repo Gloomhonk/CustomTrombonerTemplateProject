@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1257903890
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: humanoid_example.boner
+      Dependencies: {}
+    Info_1:
+      Name: simple_puppet_example.boner
+      Dependencies: {}
