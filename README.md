@@ -29,7 +29,8 @@ You'll need the following:
 - In Unity, navigate to Scenes and open `HumanoidExampleScene`. This scene contains the game-accurate lighting and camera setup, plus an example character prefab. 
 - If you press Play, you should see the example character animate. Clicking the play area should also trigger the toot animations and effects.
 
-![Humanoid example in Play mode](/ReadmeImages/HumanoidPlayMode.jpg "Humanoid example in Play mode")
+![HumanoidPlayMode](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/6d5f718f-b8d0-4358-a80b-4bffee22bb7d)
+
 
 <a id="first-character"></a>
 ## Creating Your First Character
@@ -77,11 +78,11 @@ To make your character move you'll need to create animations that work with your
     - Using Parameters to control transitions and the animations themselves.
     - Creating Blend Trees and using Parameters to blend between multiple animations.
     - Using Layers to control different parts of a character independently.
-- Animation Clips:
+- Animation clips:
     - Creating new clips and assigning them to States in the Animator.
     - Adding keyframes to to the clip to control your character.
     - How to use Curves to control how your keyframes blend and get the desired movement.
-- (For 3D models) Character Rigs:
+- (For 3D models) Character rigs:
     - A lot of 3D models online will come with a ready to use skeleton. If it doesn't then you will need to look up how to rig the character, either using programs such as [Blender](https://www.blender.org/), or via an automated process such as [Mixamo](https://www.mixamo.com/#/).
 - For 2D animating:
     - Creating Sprite objects.
