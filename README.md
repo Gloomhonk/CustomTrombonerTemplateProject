@@ -16,7 +16,7 @@ This readme will cover the basic steps for setting up a custom character, if you
 - [Attribution](#attribution)
 
 <a id="prerequisites"></a>
-## Prequisites
+## Prerequisites
 You'll need the following:
 - The [TootTallyCustomTromboner](https://trombone-champ.thunderstore.io/package/TootTally/TootTallyCustomTromboner/) mod, plus any dependencies.
 - Unity version `2019.4.40f1`. It's highly recommended that you use [Unity Hub](https://unity.com/download) to install  and manage your Unity versions.
@@ -24,55 +24,64 @@ You'll need the following:
 
 <a id="getting-started"></a>
 ## Getting Started
-- Download the latest version of this project.
-- Open the project using Unity Hub.
-- In Unity, navigate to Scenes and open `HumanoidExampleScene`. This scene contains the game-accurate lighting and camera setup, plus an example character prefab. 
-- If you press Play, you should see the example character animate. Clicking the play area should also trigger the toot animations and effects.
+1. Download the latest version of this project.
+2. Open the project using Unity Hub.
+3. In Unity, navigate to Scenes and open `HumanoidExampleScene`. This scene contains the game-accurate lighting and camera setup, plus an example character prefab. 
+4. If you press Play, you should see the example character animate. Clicking the play area should also trigger the toot animations and effects.
 
-![HumanoidPlayMode](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/6d5f718f-b8d0-4358-a80b-4bffee22bb7d | width=640)
+    ![HumanoidPlayMode](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/eca9cf8f-5e6e-417a-b304-68fd5f4e6cee)
 
 
 <a id="first-character"></a>
 ## Creating Your First Character
-The details of creating a character depend heavily on what assets you use, but these basic steps should be the same for any character:
-- Import your assets into the project: 
-    - If importing a 3D model, make sure it is in a supported format (Unity supports .fbx, .dae (Collada), .3ds, .dxf, and .obj).
-- In the scene hierarchy: create a root object called `Puppet` that is a child of the `PlaceCharacterInHere` object.
-    - If your character is a single model you can also drag that from the project explorer onto `PlaceCharacterInHere` and rename the root to `Puppet`.
-- Position your character so they are visible in the Game view.
-    - By default the character will appear on the right side of the screen, but this is heavily dependent on the model used and if it contains offsets.
-    - Do not edit the positions of `PlaceCharacterInHere` or `Puppet`, if you do then the in-game position will not match the editor. If you need to make position edits then do so on child objects.
-- Add an Animator component to the `Puppet` object:
-    - For now don't worry about the animations themselves, you can either create a new Animator from scratch or copy one of the included example Animators.
+The details of creating a character depend on what assets you use, but these basic steps should be the same for any character:
+1. Import your assets into the project: 
+    * If importing a 3D model, make sure it is in a supported format (Unity supports .fbx, .dae (Collada), .3ds, .dxf, and .obj).
+2. In the scene hierarchy: create a root object called `Puppet` that is a child of the `PlaceCharacterInHere` object, and add any assets inside this object.
+    * If you're using a 3D model, you can alternatively drag that from the project explorer onto `PlaceCharacterInHere` and rename the root to `Puppet`.
 
-This is the minimum setup required for a working character, at this stage your character won't move but it will now be ready to export and use in the game.
+    ![CreateRootObject](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/06891f8f-9148-499d-92d0-6d78948e067a)
+3. Position your character so they are visible in the Game view.
+    * By default the character will appear on the right side of the screen, but this is dependent on the model used (e.g. it may contain position offsets).
+    * Do not edit the positions of `PlaceCharacterInHere` or `Puppet`, if you do then the in-game position will not match the editor. If you need to make position edits then do so on child objects.
+4. Add an Animator component to the `Puppet` object:
+    * For now don't worry about the animations themselves, just create a new blank Animator from scratch or copy one of the included example Animators.
+
+    ![AddAnimator](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/d7a4331b-b8ad-42d5-9466-a8311c64755e)
+
+This is the minimum setup required, at this stage your character won't move but it will be ready to export and use in the game.
 
 ### Building The Assetbundle
 Custom tromboners are essentially Unity Assetbundles with a custom postfix (`.boner`). To build the Assetbundle:
 
-- Create a prefab of the character:
-    - The easiest way to do this is drag your `Puppet` object from the scene hierarchy to the project explorer.
-- Select the prefab in the project explorer and assign to an Assetbundle using bottom-right Assetbundle panel.
-	- The first drop-down box is the bundle name, if you haven't created an Assetbundle here before then add a new name.
-	- The second drop-down box is the file postfix, this must be called `boner`.
-- Open **Window -> Assetbundle Browser**
-- Choose a path for where the asset bundle file is saved. 
-- Press **Build**, you should see a new file in specified path called `your_bundle_name.boner`.
+1. Create a prefab of the character:
+    * An easy way to do this is drag your `Puppet` object from the scene hierarchy to the project explorer.
+2. Select the prefab in the project explorer and assign to an Assetbundle using the bottom-right Assetbundle panel.
+    * The first drop-down box is the bundle name, if you haven't created an Assetbundle here before then add a new name.
+    * The second drop-down box is the file postfix, this must be called `boner`.
+
+    ![AssetBundlePanel](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/fbbd2dc0-6b22-4595-98a6-05837ecce387)
+3. Open **Window -> Assetbundle Browser**
+4. Choose a path for where the asset bundle file is saved. 
+5. Press **Build**, you should see a new file in specified path called `your_bundle_name.boner`.
+
+    ![BuildAssetBundle](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/3da93458-376d-4611-8774-535a7555240f)
+    ![AssetBundleResult](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/1af94433-e788-45b0-a1f2-92357dc4f3f1)
 
 ### Testing Your Character
 
-- Copy and paste your new character file into your **Bepinex/CustomTromboners** folder.
-    - If you use r2modman to install mods it will be in your r2modman profiles folder, if you manually installed the mods it will be in your TromboneChamp Steam folder.
-    - If the folder doesn't exist then make sure to run the game once with the **TootTallyCustomTromboner** mod installed, this will automatically create the folder.
-- Launch the game and select **Mod Settings** on the main menu.
-- Select **Custom Tromboner**.
-- You should be able to select your character from the dropdown box.
-- Play any chart (or go into Free Improvisation mode) to see your character in action.
+1. Copy and paste your new character file into your **Bepinex/CustomTromboners** folder.
+    * If you use r2modman to install mods it will be in your r2modman profiles folder, if you manually installed the mods it will be in your TromboneChamp Steam folder.
+    * If the folder doesn't exist then make sure to run the game once with the **TootTallyCustomTromboner** mod installed, this will automatically create the folder.
+2. Launch the game and select **Mod Settings** on the main menu.
+3. Select **Custom Tromboner**.
+4. You should be able to select your character from the dropdown box.
+5. Play any chart (or go into Free Improvisation mode) to see your character in action.
 
 <a id="animating-character"></a>
 ## Animating Your Character
 
-To make your character move you'll need to create animations that work with your character. Fully breaking down how to create animations from scratch is out of the scope of this readme, but it's recommended you look into the following topics:
+Fully breaking down how to create animations from scratch is out of the scope of this readme, but it's recommended you look into the following topics:
 - The Unity Animator:
     - Creating States within the Animator and linking them together with Transitions.
     - Using Parameters to control transitions and the animations themselves.
@@ -80,10 +89,11 @@ To make your character move you'll need to create animations that work with your
     - Using Layers to control different parts of a character independently.
 - Animation clips:
     - Creating new clips and assigning them to States in the Animator.
-    - Adding keyframes to to the clip to control your character.
-    - How to use Curves to control how your keyframes blend and get the desired movement.
+    - Adding keyframes to the clip to control your character.
+    - Modifying Curves to control how your keyframes blend and get the desired movement.
+    - Importing clips from external applications (if you wish to create animations in a different app e.g. Blender).
 - (For 3D models) Character rigs:
-    - A lot of 3D models online will come with a ready to use skeleton. If it doesn't then you will need to look up how to rig the character, either using programs such as [Blender](https://www.blender.org/), or via an automated process such as [Mixamo](https://www.mixamo.com/#/).
+    - A lot of 3D models online will come with a usable skeleton. If it doesn't then you will need to rig the character yourself, either manually using programs such as [Blender](https://www.blender.org/), or via an automated process such as [Mixamo](https://www.mixamo.com/#/).
 - For 2D animating:
     - Creating Sprite objects.
     - Creating multiple sprites from a single spritesheet image.
@@ -91,7 +101,9 @@ To make your character move you'll need to create animations that work with your
 
 ### Humanoid Example
 
-It's highly recommended to check out the Humanoid example included in the project. The prefab contains a rigged 3D model with animations replicating the base game movement (including tooting, sliding trombone, out of breath reactions, and particle effects). Simply copying the Animator from this example can be a good starting point, but you will still need to replace the animation clips themselves.
+It's recommended to check out the Humanoid example included in the project. The prefab contains a rigged 3D model with animations replicating the base game movement (including tooting, sliding trombone, out of breath reactions, and particle effects). Copying the Animator from this example can be a good starting point, but you will still need to replace the animation clips themselves.
+
+![HumanoidAnimator](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/147159b8-1591-4253-aebc-98cc6391cac0)
 
 The Humanoid Animator is broken down into these layers:
 - **Root layer**: controls the slow, constant side-to-side rotation of the character.
@@ -101,6 +113,9 @@ The Humanoid Animator is broken down into these layers:
 
 ### Animator Parameters
 The **TootTallyCustomTromboner** mod will send events to your Animator using the following parameter names. Make sure your Animator contains these parameters if you want to make use of them:
+
+![AnimatorParameters](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/57dd2fc3-6ee3-4bb6-8f92-b19c908c11a6)
+
 - `Tooting`: boolean that is `true` when the player is pressing a toot button, and `false` when nothing is being pressed.
 - `OutOfBreath`: boolean that is `true` while the player is out of breath and cannot play, `false` during normal play.
 - `AnimationSpeed`: float that can be used as a speed multiplier for animations.
@@ -113,6 +128,8 @@ The **TootTallyCustomTromboner** mod will send events to your Animator using the
 
 ### Testing Animations
 The `PlaceCharacterInHere` object contains a script called `TrombonerAnimTester` that can be used to test your animations in Play mode in a similar manner to how they will work in-game.
+
+![Tester](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/97875b66-3e41-44cf-817b-eac1bfc171e2)
 - Assign your Animator to the `Tromboner Animator` property.
 - Start Play mode.
 - Moving the mouse will update the `PointY` Animator parameter, and clicking the Game window will trigger the `Tooting` parameter.
@@ -132,10 +149,12 @@ There are two example prefabs included in the project: `SoundwaveParticles` and 
 - Drag the prefabs onto your trombone, and position them so their root is near the trombone bell.
 - Each prefab consists of a Particle System: 
     - by default nothing will show, you need to go into the `Emission` section of the Particle System and change `Rate Over Time` to a value other than zero.
+ 
+    ![Particles](https://github.com/Gloomhonk/CustomTrombonerTemplateProject/assets/135999125/83081188-74de-4262-a9a6-608b59236a8b)
 - You can turn these effects on/off in animations by setting `Rate Over Time` to zero when the player isn't tooting, and to the max number of particles when the player is tooting (for spit this is 20, for the soundwaves this is 10).
     - In the Humanoid example this is done in the `TromboneIdle`, `TrombonePlaying`, and `TromboneOutOfBreath` animations.
 
-Feel free to modify these effects for your own requirements, or create new ones entirely.
+Feel free to modify these effects for your own requirements, or create entirely new ones.
 
 <a id="going-further"></a>
 ## Going Further
